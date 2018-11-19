@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+<title> Draw advanced</title>
+<style type="text/css">
+body{
+	background-color:black;
+	margin:0px;
+	overflow:hidden;
+	margin-top:0px;
+	background-image:url(pad.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center center;
+	}
+canvas{
+	
+	margin:auto;
+
+	display:block;
+	}
+	.nav{
+		display:block;
+		position:absolute;
+		bottom:0;
+		left:50%;
+		transform:translateX(-50%);
+		width:550px;
+		text-align:center;
+		margin:auto;
+		margin-bottom:30px;
+		font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size:12px;
+		background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+	color:#fff;
+	}
+	input{
+		font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	
+</style>
+</head>
+<body>
+        <canvas id="canvas"></canvas>
+        <div class="nav">
+        crayon : <input id="texture" type="checkbox">
+   	 	</div>
+<script>
+
+var mousePressed = false;
+var lastX, lastY;
+var my_context;
+var texture = document.getElementById("texture");
+var canvas = document.getElementById("canvas");
+var crayonTextureImage = new Image();
+crayonTextureImage.src = "crayon-texture.png";
+
+function Init() {
+	canvas.width=window.innerWidth;
+	canvas.height = window.innerHeight;
+	my_context = canvas .getContext("2d");
+
+
+	texture.addEventListener("change",(function (e) {
+        if(texture.checked == false){
+			console.log('checked is false');
+		}else{
+			console.log('checked is true');
+		}
+    }));
+	
+    canvas.addEventListener("mousedown",(function (e) {
+        mousePressed = true;
+        //draw(x,y,boolean) function 
+    }));
+
+    
+}
+
+function Draw(x, y, isDown) {
+	
+    //draw line
+}
+	
+function clearArea() {
+    // Use the identity matrix while clearing the canvas
+   // my_context.setTransform(1, 0, 0, 1, 0, 0);
+    my_context.clearRect(0, 0, my_context.canvas.width, my_context.canvas.height);
+}
+Init();	
+	
+		</script>
+
+</body>
+</html>
